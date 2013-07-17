@@ -19,14 +19,17 @@ end
 
 def get_date filename
   begin
-    date = `exiv2 #{filename}`.split(" ")[25]
+    exiv = `exiv2 #{filename}`
+    exiv =~ /.*timestamp : (\d{4}:\d{2}:\d{2}) (\d{2}:\d{2}:\d{2})/
+    date, time = $1, $2
     date.strip!
     date.gsub!(':','.')
-    time = `exiv2 #{filename}`.split(" ")[26]
     time.strip!
-    return DateTime.parse(date + " " + time)
+    datetime = DateTime.parse(date + " " + time)
+    #puts filename + ": " + datetime.to_s
+    return datetime
   rescue StandardError => e
-    puts filename + ": " + e
+    puts filename + ": " + e.to_s
   end
 end
 
@@ -34,7 +37,7 @@ puts ""
 puts "#---------------------------------------------------------------------#"
 puts "| Generator for jigl gallery file - sort images by exif creation date |"
 puts "|   by Sebastian Neumann <me@tempo-tm.de>                             |"
-puts "|   created: 2012-12-23, last modified: 2012-12-23                    |"
+puts "|   created: 2012-12-23, last modified: 2013-07-17                    |"
 puts "#---------------------------------------------------------------------#\n\n"
 
 # check for directory argument
