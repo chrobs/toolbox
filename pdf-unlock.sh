@@ -2,7 +2,7 @@
 
 # remove lock from pdf files such that one can modify them
 #
-# sebastian@bumpern.de
+# toolbox@tempo-tm.de
 # created: 2012-04-28
 # version: 0.2
 #
