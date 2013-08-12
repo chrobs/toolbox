@@ -16,8 +16,8 @@ filename="${filename%.*}"
 
 dir=`zenity --file-selection --directory --title="Zielverzeichnis, in das die Kopien gespeichert werden"`
 
-while inotifywait -e modify "$fullpath"; do
-  datetime=`date +%Y-%m-%d_%H:%M:%S`
+while inotifywait -e modify -e move_self "$fullpath"; do
+  datetime=`date +%Y-%m-%d_%H-%M-%S`
   target="$filename-$datetime.$extension"
-  cp $fullpath $dir/$target
+  cp "$fullpath" "$dir/$target"
 done
