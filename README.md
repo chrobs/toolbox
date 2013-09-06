@@ -7,6 +7,10 @@ Comments, suggestions and improvements are welcome =)
 
 ## List of included tools
 ===
+### inotify
+* **backup_copy_inotify.sh** - watches for file modification and makes a backup
+  - needs packet 'inotify-tools'
+
 ### jigl/
 * **jigl-gallery-by-date.rb** - creates jigl gallery.dat with images sorted by original creation date<br>
   - takes pictures (*.(jpg|JPG|jpeg|JPEG) from directory given in the first argument
