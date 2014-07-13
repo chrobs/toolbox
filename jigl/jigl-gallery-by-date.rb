@@ -34,11 +34,19 @@ def get_date filename
 end
 
 puts ""
-puts "#---------------------------------------------------------------------#"
+puts "+---------------------------------------------------------------------+"
 puts "| Generator for jigl gallery file - sort images by exif creation date |"
 puts "|   by Sebastian Neumann <me@tempo-tm.de>                             |"
 puts "|   created: 2012-12-23, last modified: 2013-07-17                    |"
-puts "#---------------------------------------------------------------------#\n\n"
+puts "+---------------------------------------------------------------------+"
+puts
+puts
+puts "+----Notes--------------------------------+"
+puts "| * use ruby 1.9.3                        |"
+puts "| * execute script within pictures folder |"
+puts "| * you need to install program 'exiv2'   |"
+puts "+-----------------------------------------+"
+puts
 
 # check for directory argument
 abort("No directory specified in first argument. I don't now where to look for your photos") unless ARGV[0]
