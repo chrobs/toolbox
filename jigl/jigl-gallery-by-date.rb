@@ -22,6 +22,7 @@ def get_date filename
     exiv = `exiv2 #{filename}`
     exiv =~ /.*timestamp : (\d{4}:\d{2}:\d{2}) (\d{2}:\d{2}:\d{2})/
     date, time = $1, $2
+    return nil if (not date and not time)
     date.strip!
     date.gsub!(':','.')
     time.strip!
@@ -63,7 +64,7 @@ end
 puts "done."
 
 print "\n-> sorting pictures.."
-pics = pics.sort_by{ |a,b| b}
+pics = pics.sort_by{ |a,b| b unless b}
 puts "done."
 
 puts "-> asking for gallery texts.."
